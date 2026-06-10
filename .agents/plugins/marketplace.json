@@ -1,0 +1,20 @@
+{
+  "name": "zedra",
+  "interface": {
+    "displayName": "Zedra"
+  },
+  "plugins": [
+    {
+      "name": "zedra",
+      "source": {
+        "source": "local",
+        "path": "./plugins/zedra"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

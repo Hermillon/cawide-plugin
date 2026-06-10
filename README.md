@@ -1,59 +1,34 @@
 # zedra-plugin
 
-Agent plugin for [Zedra](https://github.com/tanlethanh/zedra) — control your dev environment from your phone.
+Agent plugin for [Zedra](https://github.com/tanlethanh/zedra) — control your dev environment from mobile.
 
 See [zedra.dev](https://zedra.dev) for the app and full documentation.
 
 ## Install
 
-**curl**
 ```bash
 # Install Zedra CLI
 curl -fsSL zedra.dev/install.sh | sh
-# Start Zedra in working directory
-zedra start
+
+# Set up all detected agents
+zedra setup
 ```
 
-**Claude Code**
+Or set up one agent:
+
 ```bash
-# Inside Claude Code session
-/plugin marketplace add tanlethanh/zedra-plugin
-/plugin install zedra@zedra
-# Reload plugins and start Zedra
-/reload-plugins
-/zedra-start
+zedra setup claude
+zedra setup codex
+zedra setup opencode
 ```
 
-**Codex**
-```bash
-# Install CLI and setup Codex skill
-curl -fsSL zedra.dev/codex.sh | sh
-# then in Codex:
-/zedra-start
-```
-
-**OpenCode**
-```bash
-# Install CLI and setup OpenCode skill
-curl -fsSL zedra.dev/opencode.sh | sh
-# then in OpenCode:
-/zedra-start
-```
-
-**Gemini CLI**
-```bash
-gemini skills install https://github.com/tanlethanh/zedra-plugin.git --path plugins/zedra
-/zedra-start
-```
+Start a new agent session, then run `zedra-start`.
 
 ## Skills
 
 | Skill | Description |
 |-------|-------------|
-| `zedra-start` | Launch daemon and print QR for mobile pairing |
-| `zedra-status` | Show daemon status and active sessions |
-| `zedra-stop` | Stop the daemon |
-| `zedra-terminal` | Open a terminal on the connected phone |
+| `zedra-start` | Hand off the current agent session to mobile and print a pairing QR |
 
 ## License
 

@@ -1,77 +1,25 @@
 ---
 name: zedra-start
-description: Start a Zedra daemon in the current working directory.
+description: Hand off the current agent session to Zedra mobile and print a pairing QR.
 disable-model-invocation: true
 allowed-tools: Bash
-argument-hint: "[--workdir PATH]"
 ---
 
 # Start Zedra
 
-Goal: start Zedra for the current workspace, show the pairing QR, then open a terminal on the phone.
+Run the bundled `scripts/zedra-start.sh` relative to this `SKILL.md`.
 
-## 1. Check the CLI
+The script:
 
-```bash
-if command -v zedra >/dev/null 2>&1; then
-    zedra --help 2>&1 | head -1
-else
-    echo "NOT_INSTALLED"
-fi
-```
+- Starts the current workspace daemon in detached mode with the current agent resume command when
+  supported, or starts then resumes the session for compatibility with older Zedra versions.
+- Creates a fresh pairing QR and hands off the current session when the daemon is already running.
+- Always prints the complete pairing QR and URL on success.
 
-If `NOT_INSTALLED`, install the CLI and verify it:
+Run it from the user's current workspace:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/tanlethanh/zedra/main/scripts/install.sh | sh
-zedra --help 2>&1 | head -1
+sh <skill-directory>/scripts/zedra-start.sh
 ```
 
-If the install fails, suggest:
-
-```bash
-cargo install --git https://github.com/tanlethanh/zedra zedra-host
-```
-
-## 2. Start or reuse the daemon
-
-```bash
-zedra status --workdir "." 2>/dev/null && echo "RUNNING" || echo "NOT_RUNNING"
-```
-
-If it is not running:
-
-```bash
-nohup zedra start --workdir "." > /tmp/zedra-start.log 2>&1 &
-sleep 3
-cat /tmp/zedra-start.log
-```
-
-Show the full QR code and pairing URL from the output. If there is an error, report the error and stop.
-
-## 3. Open a terminal on the phone
-
-Use the current agent when possible:
-
-```bash
-if [ -n "${CLAUDE_SESSION_ID:-}" ]; then
-    zedra terminal --workdir "." --launch-cmd "claude --resume ${CLAUDE_SESSION_ID}"
-elif command -v codex >/dev/null 2>&1; then
-    zedra terminal --workdir "." --launch-cmd "codex resume --last"
-elif command -v opencode >/dev/null 2>&1; then
-    zedra terminal --workdir "." --launch-cmd "opencode --continue"
-elif command -v gemini >/dev/null 2>&1; then
-    zedra terminal --workdir "." --launch-cmd "gemini --resume"
-else
-    zedra terminal --workdir "."
-fi
-```
-
-## 4. Reply
-
-Keep the final message short:
-
-- Say whether Zedra is running.
-- Tell the user to scan the QR code if pairing is still needed.
-- Say whether a terminal was opened on the phone.
-- Mention `zedra-status`, `zedra-terminal`, and `zedra-stop` only if useful.
+Return the script output to the user without omitting the QR code or pairing URL.

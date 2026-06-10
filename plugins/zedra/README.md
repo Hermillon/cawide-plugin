@@ -19,17 +19,28 @@ claude --plugin-dir ./plugins/zedra
 /reload-plugins
 ```
 
-### Codex / OpenCode
+### Codex
+
+```bash
+codex plugin marketplace add tanlethanh/zedra-plugin
+codex plugin add zedra@zedra
+```
+
+Start a new Codex thread, then ask Codex to use `@zedra:zedra-start`.
+
+For local development, add this repository as the marketplace:
+
+```bash
+codex plugin marketplace add ../zedra-plugin
+codex plugin add zedra@zedra
+```
+
+### OpenCode
 
 Copy or symlink the plugin directory so the tool discovers `AGENTS.md` and
-`skills/` at the project root or in a recognized plugins path.
+`skills/` at the project root or in a recognized plugins path:
 
-Alternatively, point the tool at the skills directory:
 ```bash
-# Codex
-codex --skills-dir ./plugins/zedra/skills
-
-# OpenCode
 opencode --add-dir ./plugins/zedra
 ```
 
@@ -39,10 +50,7 @@ Plugin skills can be run directly in Claude Code:
 
 | Command | What it does |
 |---------|-------------|
-| `/zedra-start` | Check install, launch daemon, print QR |
-| `/zedra-status` | Show daemon status |
-| `/zedra-stop` | Stop the daemon |
-| `/zedra-terminal` | Open a terminal on the connected phone |
+| `/zedra-start` | Hand off the current agent session to mobile and print a pairing QR |
 
 ## Skills
 
@@ -52,11 +60,13 @@ All skills live in `skills/` as `SKILL.md` files following the Agent Skills stan
 plugins/zedra/
 ├── .claude-plugin/
 │   └── plugin.json             # Claude Code manifest
+├── .codex-plugin/
+│   └── plugin.json             # Codex manifest
 ├── AGENTS.md                   # Codex/OpenCode discovery
 ├── skills/
-│   ├── zedra-start/SKILL.md    # Install + launch + QR
-│   ├── zedra-status/SKILL.md   # Check daemon health
-│   ├── zedra-stop/SKILL.md     # Shutdown daemon
-│   └── zedra-terminal/SKILL.md # Open phone terminal
+│   └── zedra-start/
+│       ├── SKILL.md            # Skill instructions
+│       └── scripts/
+│           └── zedra-start.sh  # Pair + handoff workflow
 └── README.md
 ```

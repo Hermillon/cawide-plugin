@@ -1,0 +1,24 @@
+{
+  "name": "zedra",
+  "version": "0.2.0",
+  "description": "Hand off the current agent session to Zedra mobile.",
+  "author": {
+    "name": "Zedra",
+    "url": "https://zedra.dev"
+  },
+  "homepage": "https://zedra.dev",
+  "repository": "https://github.com/tanlethanh/zedra-plugin",
+  "license": "MIT",
+  "keywords": ["zedra", "mobile", "remote-development", "terminal"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Zedra",
+    "shortDescription": "Control your development environment from mobile",
+    "longDescription": "Start or reuse the workspace daemon, print a pairing QR, and hand off the current agent session to Zedra mobile.",
+    "developerName": "Zedra",
+    "category": "Developer Tools",
+    "capabilities": ["Interactive", "Execute"],
+    "websiteURL": "https://zedra.dev",
+    "defaultPrompt": ["Use Zedra to hand off this session to mobile."]
+  }
+}
