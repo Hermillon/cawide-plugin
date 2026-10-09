@@ -1,16 +1,16 @@
 {
-  "name": "zedra",
+  "name": "cawide",
   "owner": {
-    "name": "tanlethanh"
+    "name": "Hermillon"
   },
   "metadata": {
-    "description": "Zedra plugins for Claude Code"
+    "description": "Cawide plugins for Claude Code"
   },
   "plugins": [
     {
-      "name": "zedra",
-      "source": "./plugins/zedra",
-      "description": "Hand off the current agent session to Zedra mobile and print a pairing QR with /zedra-start"
+      "name": "cawide",
+      "source": "./plugins/cawide",
+      "description": "Hand off the current agent session to Cawide mobile and print a pairing QR with /cawide-start"
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
-  "name": "zedra",
+  "name": "cawide",
   "interface": {
-    "displayName": "Zedra"
+    "displayName": "Cawide"
   },
   "plugins": [
     {
-      "name": "zedra",
+      "name": "cawide",
       "source": {
         "source": "local",
-        "path": "./plugins/zedra"
+        "path": "./plugins/cawide"
       },
       "policy": {
         "installation": "AVAILABLE",

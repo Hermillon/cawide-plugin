@@ -1,34 +1,34 @@
-# zedra-plugin
+# cawide-plugin
 
-Agent plugin for [Zedra](https://github.com/tanlethanh/zedra) — control your dev environment from mobile.
+Agent plugin for [Cawide](https://github.com/Hermillon/cawide) — control your dev environment from mobile.
 
-See [zedra.dev](https://zedra.dev) for the app and full documentation.
+See [cawide.dev](https://cawide.dev) for the app and full documentation.
 
 ## Install
 
 ```bash
-# Install Zedra CLI
-curl -fsSL zedra.dev/install.sh | sh
+# Install Cawide CLI
+curl -fsSL https://raw.githubusercontent.com/Hermillon/cawide/main/scripts/install.sh | sh
 
 # Set up all detected agents
-zedra setup
+cawide setup
 ```
 
 Or set up one agent:
 
 ```bash
-zedra setup claude
-zedra setup codex
-zedra setup opencode
+cawide setup claude
+cawide setup codex
+cawide setup opencode
 ```
 
-Start a new agent session, then run `zedra-start`.
+Start a new agent session, then run `cawide-start`.
 
 ## Skills
 
 | Skill | Description |
 |-------|-------------|
-| `zedra-start` | Hand off the current agent session to mobile and print a pairing QR |
+| `cawide-start` | Hand off the current agent session to mobile and print a pairing QR |
 
 ## License
 

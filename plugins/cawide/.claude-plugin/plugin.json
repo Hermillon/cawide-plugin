@@ -1,0 +1,20 @@
+{
+  "name": "cawide",
+  "version": "0.2.0",
+  "description": "Hand off the current agent session to Cawide mobile and print a pairing QR.",
+  "author": {
+    "name": "Cawide",
+    "url": "https://github.com/Hermillon/cawide"
+  },
+  "repository": "https://github.com/Hermillon/cawide",
+  "license": "MIT",
+  "keywords": [
+    "cawide",
+    "mobile",
+    "remote",
+    "terminal",
+    "android",
+    "ios",
+    "qr"
+  ]
+}

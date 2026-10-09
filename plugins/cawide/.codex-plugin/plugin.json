@@ -1,0 +1,34 @@
+{
+  "name": "cawide",
+  "version": "0.2.0",
+  "description": "Hand off the current agent session to Cawide mobile.",
+  "author": {
+    "name": "Cawide",
+    "url": "https://cawide.dev"
+  },
+  "homepage": "https://cawide.dev",
+  "repository": "https://github.com/Hermillon/cawide-plugin",
+  "license": "MIT",
+  "keywords": [
+    "cawide",
+    "mobile",
+    "remote-development",
+    "terminal"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Cawide",
+    "shortDescription": "Control your development environment from mobile",
+    "longDescription": "Start or reuse the workspace daemon, print a pairing QR, and hand off the current agent session to Cawide mobile.",
+    "developerName": "Cawide",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Execute"
+    ],
+    "websiteURL": "https://cawide.dev",
+    "defaultPrompt": [
+      "Use Cawide to hand off this session to mobile."
+    ]
+  }
+}
